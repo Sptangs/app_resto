@@ -43,6 +43,9 @@
             $query->execute();
             return $query;
         }
+        function lastInsert(){
+            return $this->db->lastInsertId();
+        }
     }
 
     $dbo = new Koneksi();

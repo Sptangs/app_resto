@@ -7,12 +7,16 @@
         unset($_SESSION['cart'][$id]);
     }else if($aksi=="edit"){
         $_SESSION['cart'][$id] +=$val;
-    }
+        if($_SESSION['cart'][$id]<=0){
+            unset($_SESSION['cart'][$id]);
+        }
+    }else{
     if(isset($_SESSION['cart'][$id])){
         $_SESSION['cart'][$id] +=1;
     }else{
         $_SESSION['cart'][$id]= 1;
     }
+}
 
 
 ?>

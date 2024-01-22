@@ -49,16 +49,20 @@
                 <th>No</th>
                 <th>Menu</th>
                 <th>Jumlah</th>
+                <th>Harga</th>
+                <th>Sub Total</th>
                 <th>Hapus</th>
             </tr>
             <?php
                 $no = 1;
+                $total = 0;
                  if(!empty($_SESSION['cart'])){
                     foreach($_SESSION['cart'] as $id=>$val){
                         $datamenu = $dbo->select("tblmenu where idmenu=$id");
                         foreach($datamenu as $row){
-
+                                
                         }
+                        $total += $row['harga']*$val
                       ?>
                         <tr>
                             <td><?=$no++?></td>
@@ -68,6 +72,8 @@
                                 <?=$val?>
                                 <a href="cart.php?aksi=edit&id=<?=$id?>&val=1">[+]</a>
                             </td>
+                            <td><?=$row['harga']?></td>
+                            <td><?=$row['harga']*$val?></td>
                             <td>
                                 <a href="cart.php?id=<?=$id?>&aksi=hapus">Hapus</a>
                             </td>
@@ -76,7 +82,20 @@
                     }
                 }
             ?>
+            <tr>
+                <td colspan="4">Total</td>
+                <td colspan="2"><?=$total?> </td>
+            </tr>
         </table>
+        <br>
+        <?php
+            if($jumlahpesanan>0){
+                ?>
+            <a href="checkout.php" class="btn-checkout">Checkout</a>
+
+                <?php
+            }
+        ?>
     </section>
 
 <?php
