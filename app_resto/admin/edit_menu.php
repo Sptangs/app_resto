@@ -1,11 +1,11 @@
 <?php
     if($id !=""){
-        $sel = $dbo->select('tblmenu');
+        $sel = $dbo->select("tblmenu where idmenu=$id");
         foreach($sel as $row){
                 $idkategori = $row['idkategori'];
                 $idmenu = $row['idmenu'];
                 $nama_menu = $row['nama_menu'];
-                $desk = $row['deskripsi'];
+                $desk = $row['deskripsi'];  
                 $harga = $row['harga'];
         }
     }
@@ -14,13 +14,13 @@
         extract($_POST);
         $nama_foto = isset($_FILES['foto']['name'])?$_FILES['foto']['name']:"";
         if($foto == ""){
-            $up = $dbo->update("tblmenu", "nama_menu ='$nama_menu',deskripsi='$deskripsi', harga='$harga', idkategori='$kategori'", "idmenu=$idmenu");
+            $up = $dbo->update("tblmenu", "nama_menu ='$nama_menu',deskripsi='$deskripsi', harga='$harga', idkategori='$kategori'", "idmenu='$idmenu'");
         }else{
             $nama_foto = date('YmdHis').$_FILES['foto']['name'];
             $nama_tmp = $_FILES['foto']['tmp_name'];
             $folder = '../img/';
             move_uploaded_file($nama_tmp,$folder.$nama_foto);
-            $up = $dbo->update("tblmenu", "nama_menu='$nama_menu',deskripsi='$deskripsi', harga='$harga', idkategori='$kategori',foto='$nama_foto'", "idmenu=$idmenu");
+            $up = $dbo->update("tblmenu", "nama_menu='$nama_menu',deskripsi='$deskripsi', harga='$harga', idkategori='$kategori',foto='$nama_foto'", "idmenu='$idmenu'");
         }
         if($up){
             ?>

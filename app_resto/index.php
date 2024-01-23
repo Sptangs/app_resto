@@ -1,6 +1,9 @@
 <?php
     session_start();
     include "config/classDB.php";
+    if(!isset($_SESSION['iduser'])){
+        header('location:login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
