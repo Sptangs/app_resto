@@ -1,6 +1,10 @@
 <?php
+    session_start();
     include "../config/classDb.php";
     $id =  isset($_GET['id'])?$_GET['id']:"";
+    if(!isset($_SESSION['iduser'])){
+        header('location:login.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +19,7 @@
     <div class="sidebar">
         <ul>
             <li><a href="?hal=dashboard"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-            <li><a href="?hal=user"><i class="fa fa-users"></i>Petugas</a></li>
+            <li><a href="?hal=petugas"><i class="fa fa-users"></i>Petugas</a></li>
             <li><a href="?hal=kategori"><i class="fa fa-cube"></i>Kategori</a></li>
             <li><a href="?hal=menu"><i class="fa fa-list"></i>Menu</a></li>
             <li><a href="?hal=transaksi"><i class="fa fa-dollar"></i>Transaksi</a></li>
