@@ -3,8 +3,7 @@
     include "config/classDb.php";
     if(!empty($_SESSION['cart'])){
         //simpan ke table order
-        $insertOrder = $dbo->insert("tblorder(idorder,idpelanggan,tglorder)",
-        "null,'1',now()");
+        $insertOrder = $dbo->insert("tblorder(idorder,idpelanggan,tglorder)","null,".$_SESSION['iduser'].",now()");
         $idorder = $dbo->lastInsert();
     if($insertOrder){
         //simpan ke order detail

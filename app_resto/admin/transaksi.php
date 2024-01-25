@@ -28,7 +28,7 @@
                       <td>
                          <?php
                            if($row['total']==null){
-                              echo"<a href='bayar.php?id=$row[idorder]'>Bayar</a>";
+                              echo "<a href='?hal=bayar&id=$row[idorder]'>Bayar</>";
                            }else{
                             echo"Lunas";
                            }

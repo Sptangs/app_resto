@@ -14,7 +14,7 @@
     }
 ?>
 <div class="judul">
-    <a href="?hal=add_petuas"><i class="fa fa-list"></i>Lihat Data</a>
+    <a href="?hal=add_petugas"><i class="fa fa-list"></i>Lihat Data</a>
     <div class="keterangan">Data Menu</div>
 </div>
 <div class="data-input">
