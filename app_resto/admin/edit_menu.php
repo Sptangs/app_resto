@@ -13,7 +13,7 @@
     if(isset($_POST['simpan'])){
         extract($_POST);
         $nama_foto = isset($_FILES['foto']['name'])?$_FILES['foto']['name']:"";
-        if($foto == ""){
+        if($nama_foto == ""){
             $up = $dbo->update("tblmenu", "nama_menu ='$nama_menu',deskripsi='$deskripsi', harga='$harga', idkategori='$kategori'", "idmenu='$idmenu'");
         }else{
             $nama_foto = date('YmdHis').$_FILES['foto']['name'];
@@ -61,7 +61,7 @@
                 <td>Nama Menu</td>
                 <td>:</td>
                 <td>
-                    <input type="text" name="nama_menu" placeholder="Nama Menu" vaalue="<?=$nama_menu?>" required>
+                    <input type="text" name="nama_menu" placeholder="Nama Menu" value="<?=$nama_menu?>" required>
                 </td>
             </tr>
             <tr>

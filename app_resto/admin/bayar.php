@@ -34,7 +34,7 @@
             <th>Subtotal</th>
         </tr>
         <?php
-            $datamenu = $dbo->select("tblorderdetail a, tblmenu b where a.idmenu = b.idmenu","a.*,b. nama_menu");
+            $datamenu = $dbo->select("tblorderdetail a, tblmenu b where a.idmenu = b.idmenu and a.idorder=$id","a.*,b. nama_menu");
             $no=1;
             $total=0;
             foreach($datamenu as $row){
@@ -60,9 +60,7 @@
         </tr>
        
         <tr>
-            <td  colspan="4">
-                Bayar
-            </td>
+            <td colspan="4">Bayar</td>
             <td>
             <input type="number" name="bayar" id="bayar">
             </td>
